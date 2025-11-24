@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | さとう</title>
+    <!-- FontAwesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Google Font: Inter (モダンなデザインによく合うフォント) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        /*
+        --------------------------------------------------------
+        1. Base Styles & Typography
+        --------------------------------------------------------
+        */
+        :root {
+            --color-primary: #1E90FF; /* ドジャーブルー */
+            --color-secondary: #0056b3; /* 濃い青 */
+            --color-light: #F0F8FF; /* アリスブルー (セクション背景) */
+            --color-dark: #333333;
+            --color-text: #555555;
+            --max-width: 1000px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+            line-height: 1.7;
+            color: var(--color-dark);
+            background-color: #ffffff;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            color: var(--color-dark);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+
+        /*
+        --------------------------------------------------------
+        2. Header & Navigation
+        --------------------------------------------------------
+        */
+        header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        
+        /*
+        --------------------------------------------------------
+        3. Hero/Profile Section
+        --------------------------------------------------------
+        */
+        #hero {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .profile-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 40px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--color-light);
+        }
+
+        .avatar-box {
+            /* 外部画像不使用のため、CSSで円形デザインを作成 */
+            width: 120px;
+            height: 120px;
+            background-color: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 3rem;
+        }
+
+        .profile-card h2 {
+            margin-bottom: 5px;
+            color: var(--color-primary);
+        }
+
+        .profile-card p {
+            font-size: 1.1rem;
+            color: var(--color-text);
+            margin-top: 10px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: var(--color-primary);
+        }
+
+        /*
+        --------------------------------------------------------
+        4. Gaku-Chika (Experience) Section
+        --------------------------------------------------------
+        */
+        #gaku-chika {
+            padding: 60px 0;
+            background-color: var(--color-light); /* 薄い青の背景でセクションを区切る */
+        }
+        
+        .gaku-chika-content {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .gaku-chika-point {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 5px solid var(--color-primary);
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+
+        .gaku-chika-point h3 {
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--color-secondary);
+        }
+
+        .gaku-chika-point h3 i {
+            margin-right: 10px;
+            color: var(--color-primary);
+            font-size: 1.2em;
+        }
+
+        .gaku-chika-text p {
+            color: var(--color-dark);
+            margin-bottom: 15px;
+            text-align: justify; /* 文章の整形を意識して両端揃え */
+        }
+
+        /*
+        --------------------------------------------------------
+        5. Footer
+        --------------------------------------------------------
+        */
+        footer {
+            background-color: var(--color-dark);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        /*
+        --------------------------------------------------------
+        6. Responsive Design (Mobile First + Media Query)
+        --------------------------------------------------------
+        */
+        @media screen and (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.2rem; }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            #hero {
+                padding: 50px 0;
+            }
+
+            .profile-card {
+                padding: 30px 15px;
+            }
+
+            .avatar-box {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+
+            #gaku-chika {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. ヘッダー -->
+    <header>
+        <div class="container">
+            <div class="logo">My Portfolio</div>
+            <!-- ナビゲーションを省略しシンプルに -->
+        </div>
+    </header>
+
+    <!-- 2. 自己紹介セクション -->
+    <section id="hero">
+        <div class="container">
+            <div class="profile-card">
+                <div class="avatar-box">
+                    <i class="fas fa-user-tie"></i> <!-- プロフィールアイコン -->
+                </div>
+                <h1>さとう</h1>
+                <p><strong>所属:</strong> 日本大学 理工学部 応用情報工学科</p>
+                <p style="margin-top: 20px; font-size: 1rem; color: #777;">
+                    常に主体性を持ち、成長を追求する情報工学の学生です。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 学生時代に力を入れたこと（ガクチカ）セクション -->
+    <section id="gaku-chika">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-rocket" style="margin-right: 10px;"></i>
+                学生時代に力を入れたこと (Gaku-Chika)
+            </h2>
+
+            <div class="gaku-chika-content">
+                <div class="gaku-chika-point">
+                    <h3>
+                        <i class="fas fa-lightbulb"></i>
+                        自律的に行動し、困難を乗り越える力
+                    </h3>
+                    <div class="gaku-chika-text">
+                        <p>
+                            私はカラオケ店のアルバイト経験を通じて、「自律的に行動し、困難を乗り越える力」を培いました。早番から深夜番まで全て兼任したため、他者の2倍以上の業務知識を短期間で習得するという課題に直面しました。
+                        </p>
+                        <p>
+                            指示待ちの姿勢では成長が追いつかないと考え、私は自ら先輩に業務内容について具体的な質問を行い、独自の業務メモを整備しました。この主体的な行動により、複雑な深夜帯の知識を3ヶ月で完全に定着させ、入社3ヶ月で新人の教育担当に抜擢されました。
+                        </p>
+                        <p>
+                            また、お客様から有難い感謝の言葉を頂く機会も入社当初と比べてかなり増加しました。この経験から、主体的な行動が自身の成長と具体的な成果に直結することを深く学びました。
+                        </p>
+                    </div>
+                </div>
+                <!-- 成長曲線や成果を示すためのシンプルな視覚要素 (CSSボックス) -->
+                <div style="height: 10px; background-color: var(--color-primary); border-radius: 5px; margin-top: 40px;"></div>
+                <div style="text-align: center; margin-top: 10px; font-size: 0.9rem; color: var(--color-primary); font-weight: 600;">
+                    課題発見 → 主体的な行動 → 成果（知識定着・新人教育担当への抜擢）
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. フッター -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 My Portfolio. All Rights Reserved. | Designed by Gemini</p>
+        </div>
+    </footer>
+
+</body>
+</html>
