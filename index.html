@@ -16,13 +16,9 @@
         --------------------------------------------------------
         */
         :root {
-            /* メインカラー: 知的なダークグレー */
-            --color-primary: #455A64; 
-            /* アクセント: 濃いチャコール */
-            --color-secondary: #263238; 
-            /* 強調色: 少し青みがかったグレー */
-            --color-accent: #78909C; 
-            /* 背景: オフホワイト〜薄いグレー */
+            --color-primary: #455A64; /* 知的なダークグレー */
+            --color-secondary: #263238; /* 濃いチャコール */
+            --color-accent: #78909C; /* 強調色 */
             --color-bg: #F5F5F5;
             --color-card-bg: #FFFFFF;
             --color-text: #333333;
@@ -97,7 +93,7 @@
 
         /*
         --------------------------------------------------------
-        3. Profile Section
+        3. Profile Section (画像対応修正済み)
         --------------------------------------------------------
         */
         #profile {
@@ -114,17 +110,23 @@
             margin: 0 auto;
         }
 
+        /* ここが画像を丸く切り抜く設定 */
         .avatar-box {
-            width: 120px;
-            height: 120px;
-            background-color: var(--color-primary);
-            color: white;
-            border-radius: 50%;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            width: 140px;          /* 幅 */
+            height: 140px;         /* 高さ */
+            border-radius: 50%;    /* 完全な円にする */
+            margin: 0 auto 25px;   /* 中央寄せと下の余白 */
+            overflow: hidden;      /* 画像のはみ出しをカット */
+            border: 4px solid white; /* 白い枠線 */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* 影 */
+            background-color: #ddd; /* 画像読み込み前の背景色 */
+        }
+
+        /* 画像自体の設定 */
+        .avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 縦横比を崩さずに枠いっぱいに表示 */
         }
 
         .profile-info {
@@ -140,7 +142,7 @@
 
         /*
         --------------------------------------------------------
-        4. Gaku-Chika (Experience) - 二つ名レイアウト
+        4. Gaku-Chika (Experience)
         --------------------------------------------------------
         */
         #gaku-chika {
@@ -163,7 +165,6 @@
         }
 
         .story-header::after {
-            /* 装飾用の薄いアイコン */
             content: '\f005';
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
@@ -175,7 +176,6 @@
             transform: rotate(15deg);
         }
 
-        /* 二つ名（キャッチコピー） */
         .story-tagline {
             font-family: "Noto Sans JP", sans-serif;
             font-size: 2.5rem;
@@ -242,7 +242,6 @@
             color: var(--color-secondary);
         }
 
-        /* Skill Tags */
         .tag-cloud {
             display: flex;
             flex-wrap: wrap;
@@ -263,7 +262,6 @@
 
         .tag i { margin-right: 8px; }
 
-        /* Cert List */
         .cert-list {
             list-style: none;
         }
@@ -325,9 +323,11 @@
     <section id="profile">
         <div class="container">
             <div class="profile-card">
+                <!-- アイコン画像部分 (修正済み) -->
                 <div class="avatar-box">
-                    <i class="fas fa-user-tie"></i>
+                    <img src="my_icon.png" alt="さとうのプロフィール画像">
                 </div>
+                
                 <h1>さとう</h1>
                 <div class="profile-info">日本大学 理工学部 応用情報工学科</div>
                 <p>
@@ -338,11 +338,10 @@
         </div>
     </section>
 
-    <!-- Gaku-Chika (Feature Layout) -->
+    <!-- Gaku-Chika -->
     <section id="gaku-chika">
         <div class="container">
             <div class="story-card">
-                <!-- 二つ名（キャッチコピー）ヘッダー -->
                 <div class="story-header">
                     <div style="font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; opacity: 0.8;">My Story</div>
                     <h2 class="story-tagline">
@@ -391,7 +390,6 @@
             <h2 class="section-subtitle">Skills & Certifications</h2>
             
             <div class="grid-container">
-                <!-- Skills -->
                 <div class="skill-box">
                     <h3 style="margin-bottom: 20px; font-size: 1.2rem;">
                         <i class="fas fa-laptop-code" style="color: var(--color-primary); margin-right: 10px;"></i>技術スタック
@@ -405,7 +403,6 @@
                     </div>
                 </div>
 
-                <!-- Certifications -->
                 <div class="cert-box">
                     <h3 style="margin-bottom: 20px; font-size: 1.2rem;">
                         <i class="fas fa-certificate" style="color: var(--color-primary); margin-right: 10px;"></i>資格・学習
