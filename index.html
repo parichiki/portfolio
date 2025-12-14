@@ -93,7 +93,7 @@
 
         /*
         --------------------------------------------------------
-        3. Profile Section (画像対応修正済み)
+        3. Profile Section
         --------------------------------------------------------
         */
         #profile {
@@ -110,23 +110,22 @@
             margin: 0 auto;
         }
 
-        /* ここが画像を丸く切り抜く設定 */
+        /* 画像を丸く切り抜く設定 */
         .avatar-box {
-            width: 140px;          /* 幅 */
-            height: 140px;         /* 高さ */
-            border-radius: 50%;    /* 完全な円にする */
-            margin: 0 auto 25px;   /* 中央寄せと下の余白 */
-            overflow: hidden;      /* 画像のはみ出しをカット */
-            border: 4px solid white; /* 白い枠線 */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* 影 */
-            background-color: #ddd; /* 画像読み込み前の背景色 */
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            overflow: hidden;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            background-color: #ddd;
         }
 
-        /* 画像自体の設定 */
         .avatar-box img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* 縦横比を崩さずに枠いっぱいに表示 */
+            object-fit: cover;
         }
 
         .profile-info {
@@ -142,7 +141,7 @@
 
         /*
         --------------------------------------------------------
-        4. Gaku-Chika (Experience)
+        4. Gaku-Chika (Experience) - 文字色修正箇所
         --------------------------------------------------------
         */
         #gaku-chika {
@@ -157,8 +156,10 @@
         }
 
         .story-header {
-            background: var(--color-secondary);
-            color: white;
+            /* 背景色を確実に濃いグレーに指定 */
+            background-color: #263238 !important; 
+            /* 文字色を確実に白に指定 */
+            color: #ffffff !important;
             padding: 60px 40px;
             text-align: center;
             position: relative;
@@ -176,6 +177,7 @@
             transform: rotate(15deg);
         }
 
+        /* キャッチコピー（二つ名）の色指定を強化 */
         .story-tagline {
             font-family: "Noto Sans JP", sans-serif;
             font-size: 2.5rem;
@@ -183,12 +185,26 @@
             margin-bottom: 15px;
             line-height: 1.3;
             letter-spacing: 0.05em;
+            color: #ffffff !important; /* 強制的に白にする */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* 読みやすくするための影を追加 */
         }
 
+        /* サブタイトルの色指定 */
         .story-sub {
             font-size: 1.1rem;
-            opacity: 0.8;
+            opacity: 0.9;
             font-weight: 300;
+            color: #ECEFF1 !important; /* 薄いグレー */
+        }
+
+        /* 上部の小さいラベルの色指定 */
+        .story-label {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #B0BEC5 !important; /* 明るめのグレー */
+            display: block;
         }
 
         .story-content {
@@ -323,7 +339,7 @@
     <section id="profile">
         <div class="container">
             <div class="profile-card">
-                <!-- アイコン画像部分 (修正済み) -->
+                <!-- アイコン画像 -->
                 <div class="avatar-box">
                     <img src="my_icon.png" alt="さとうのプロフィール画像">
                 </div>
@@ -343,7 +359,8 @@
         <div class="container">
             <div class="story-card">
                 <div class="story-header">
-                    <div style="font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; opacity: 0.8;">My Story</div>
+                    <!-- ラベルにもクラスを付与して色を指定 -->
+                    <span class="story-label">My Story</span>
                     <h2 class="story-tagline">
                         3ヶ月で教育担当へ抜擢。<br>
                         「主体性」が拓いた、<br>成長への最短ルート。
